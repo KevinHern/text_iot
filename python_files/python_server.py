@@ -13,7 +13,8 @@ import traceback
 app = Flask(__name__)
 
 # Initializing network stuff
-PORT = 44321
+PYTHON_PORT = 44321
+ESP_PORT = 43321
 
 
 @app.route('/')
@@ -78,5 +79,5 @@ def text():
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=PORT, debug=True)
+    app.run(host='127.0.0.1', port=PYTHON_PORT, debug=True)
 # '''
