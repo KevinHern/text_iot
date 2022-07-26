@@ -95,6 +95,7 @@ class SingleLineInputField extends StatelessWidget {
       textCapitalization: TextCapitalization.sentences,
       isLastInput: this.isLastInput,
       isSingleLine: true,
+      textInputType: TextInputType.text,
       readOnly: this.readOnly,
       validator: this.validator,
     );
