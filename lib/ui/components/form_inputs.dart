@@ -59,9 +59,7 @@ class TextInputField extends StatelessWidget {
         textInputAction:
             (isLastInput) ? TextInputAction.done : TextInputAction.next,
         keyboardType: textInputType,
-        onEditingComplete: () => (isLastInput)
-            ? FocusScope.of(context).unfocus()
-            : FocusScope.of(context).nextFocus(),
+        onEditingComplete: () => FocusScope.of(context).nextFocus(),
         validator:
             (validator != null) ? (String? value) => validator!(value) : null,
       ),
@@ -95,7 +93,7 @@ class SingleLineInputField extends StatelessWidget {
       textCapitalization: TextCapitalization.sentences,
       isLastInput: this.isLastInput,
       isSingleLine: true,
-      textInputType: TextInputType.text,
+      textInputType: const TextInputType.numberWithOptions(decimal: true),
       readOnly: this.readOnly,
       validator: this.validator,
     );

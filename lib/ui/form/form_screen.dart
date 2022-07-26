@@ -95,6 +95,7 @@ class ESPTextFormScreenState extends State<ESPTextFormScreen> with FormMixin {
                 icon: Icons.text_fields,
                 label: "Text to Send",
                 controller: textToSendController,
+                isLastInput: true,
                 validator: (String? value) {
                   return (value == null)
                       ? null
