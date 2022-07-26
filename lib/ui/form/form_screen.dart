@@ -44,7 +44,7 @@ class ESPTextFormScreenState extends State<ESPTextFormScreen> with FormMixin {
           child: Column(
             children: [
               const FormTitle(
-                title: "Innovation Lab - IoT",
+                title: "Innovation Lab\nText Over IoT",
               ),
               const SizedBox(
                 height: spacing,
