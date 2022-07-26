@@ -11,22 +11,24 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        title: Text(
-          'Proyecto',
-          style: Theme.of(context).textTheme.headline1,
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: true,
+          title: Text(
+            'Proyecto',
+            style: Theme.of(context).textTheme.headline1,
+          ),
         ),
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: spacing * 5,
-                horizontal: MediaQuery.of(context).size.width * 0.10),
-            child: ESPTextFormScreen(
-              repository: ESPTextManagementImpl(),
+        body: Center(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: spacing * 5,
+                  horizontal: MediaQuery.of(context).size.width * 0.10),
+              child: ESPTextFormScreen(
+                repository: ESPTextManagementImpl(),
+              ),
             ),
           ),
         ),
