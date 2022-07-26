@@ -30,10 +30,9 @@ class ESPTextFormScreenState extends State<ESPTextFormScreen> with FormMixin {
   final regex = RegExp(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}');
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final TextEditingController pythonIPController =
-          TextEditingController(text: "127.0.0.1"),
-      espIPController = TextEditingController(text: "127.0.0.1"),
-      textToSendController = TextEditingController(text: "asdf");
+  final TextEditingController pythonIPController = TextEditingController(),
+      espIPController = TextEditingController(),
+      textToSendController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
