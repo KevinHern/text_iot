@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kevinhern.text_iot">
    <application
-        android:label="text_iot"
+        android:label="Text IoT"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
