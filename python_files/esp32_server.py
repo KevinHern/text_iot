@@ -1,11 +1,18 @@
+# Other Libraries
+from max7219 import Matrix8x8
+
 # Pin and chip related
-from machine import Pin, PWM
+from machine import Pin, SPI
+import time
 
 # Network related
 import network, socket
 
-# Others
-import neopixel, time
+# Initializing Matrix
+spi = SPI(1, baudrate=10000000, polarity=1, phase=0, sck=Pin(21), mosi=Pin(16))
+ss = Pin(17, Pin.OUT)
+display = Matrix8x8(spi, ss, 1)
+display.brightness(15)
 
 # Connect to local Wi Fi
 ssid = '---'
@@ -38,11 +45,13 @@ while True:
 
     # Parsing Request
     text_to_display = request.decode("utf-8")
+    text_to_display = text_to_display + " "
 
     # Closing connection to save network resources
     conn.close()
 
-    # Executing
-    mode = request & 0xFF000000
-
-
+    for i in range(len(text_to_display)):
+        display = Matrix8x8(spi, ss, i+1)
+        display.text(text_to_display ,0,0,1)
+        time.sleep(1)
+        display.show()

@@ -1,7 +1,7 @@
 // Models
 import 'operation_result.dart';
 
-class ESPText extends Equatable {
+class ESPText {
   final String espIP;
   final String text;
 
@@ -11,15 +11,7 @@ class ESPText extends Equatable {
   });
 
   Map<String, dynamic> toMap() => {
-        "espIPs": espIP,
+        "espIP": espIP,
         "text": text,
       };
-
-  @override
-  List<Object?> get props => [
-        espIP,
-        text,
-      ];
 }
-
-class Equatable {}

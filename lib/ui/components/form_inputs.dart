@@ -71,13 +71,14 @@ class SingleLineInputField extends StatelessWidget {
   final IconData icon;
   final String label;
   final TextEditingController controller;
-  final bool isLastInput, readOnly;
+  final bool isLastInput, readOnly, isIPInput;
   final Function(String?)? validator;
 
   const SingleLineInputField({
     required this.icon,
     required this.label,
     required this.controller,
+    this.isIPInput = false,
     this.isLastInput = false,
     this.validator,
     this.readOnly = false,
@@ -93,7 +94,9 @@ class SingleLineInputField extends StatelessWidget {
       textCapitalization: TextCapitalization.sentences,
       isLastInput: this.isLastInput,
       isSingleLine: true,
-      textInputType: const TextInputType.numberWithOptions(decimal: true),
+      textInputType: (isIPInput)
+          ? const TextInputType.numberWithOptions(decimal: true)
+          : TextInputType.text,
       readOnly: this.readOnly,
       validator: this.validator,
     );

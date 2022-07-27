@@ -41,13 +41,22 @@ def text():
             # Extracting JSON
             rjson = request.get_json()
 
+            print('extracted json')
+
             # Extracting parameters
             host = str(rjson['espIP'])
             text_to_send = str(rjson['text'])
 
+            print('recieved host: ' + host + " text: " + text_to_send)
+
+            print('About to create connection to ESP')
+
             # Sending to the ESP
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.connect((host, PORT))
+                print('Socket created, about to connect')
+                s.settimeout(5)
+                s.connect((host, ESP_PORT))
+                print('connected to ESP')
                 s.sendall(bytes(text_to_send, 'utf-8'))
                 s.close()
 
@@ -79,5 +88,5 @@ def text():
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=PYTHON_PORT, debug=True)
+    app.run(port=PYTHON_PORT, debug=True)
 # '''

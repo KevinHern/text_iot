@@ -53,6 +53,7 @@ class ESPTextFormScreenState extends State<ESPTextFormScreen> with FormMixin {
                 icon: Icons.link,
                 label: "Python IP Address",
                 controller: pythonIPController,
+                isIPInput: true,
                 validator: (String? value) {
                   if (value == null) {
                     return null;
@@ -74,6 +75,7 @@ class ESPTextFormScreenState extends State<ESPTextFormScreen> with FormMixin {
                 icon: Icons.link,
                 label: "ESP IP Address",
                 controller: espIPController,
+                isIPInput: true,
                 validator: (String? value) {
                   if (value == null) {
                     return null;
